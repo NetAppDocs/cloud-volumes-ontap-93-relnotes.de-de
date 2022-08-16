@@ -1,0 +1,16 @@
+---
+layout: astra 
+sidebar: sidebar 
+permalink: index.html 
+lead: These release notes describe new features, limitations, and known issues for ONTAP Cloud 9.3. 
+summary: In diesen Versionshinweisen werden die neuen Funktionen, Einschränkungen und bekannten Probleme bei ONTAP Cloud 9.3 beschrieben. 
+---
+= Versionshinweise zu ONTAP Cloud 9.3
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+

@@ -1,0 +1,90 @@
+---
+sidebar: sidebar 
+permalink: reference-new.html 
+keywords: 'what"s new, new, features, release notes, enhancements' 
+summary: ONTAP Cloud 9.3 umfasst mehrere neue Funktionen und Verbesserungen. 
+---
+= Was ist neu in ONTAP Cloud 9.3
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+ONTAP Cloud 9.3 umfasst mehrere neue Funktionen und Verbesserungen.
+
+
+
+== Verbesserung von ONTAP Cloud HA in AWS
+
+Die Version 9.3 sorgt für die Widerstandsfähigkeit von ONTAP Cloud HA-Paaren, um Netzwerkstörungen oder vorübergehende höhere Latenzen innerhalb des AWS Ecosystems zu tolerieren und die Verfügbarkeit von Kundendaten während solcher Ereignisse sicherzustellen.
+
+
+
+== Unterstützung für die Region EU (Paris) in AWS
+
+ONTAP-Cloud wird jetzt in der Region EU (Paris) in AWS unterstützt. Basierend auf den unterstützten Instanztypen in dieser Region sind die folgenden ONTAP-Cloud-Konfigurationen in der Region EU (Paris) verfügbar:
+
+* ONTAP Cloud-Standard (r4.xlarge)
+* ONTAP Cloud Premium (r4.2xlarge)
+* ONTAP Cloud BYOL (r4.xlarge und r4.2xlarge)
+
+
+
+
+== Verbesserte Schreib-Performance mit Azure Premium-Festplatten
+
+Die Schreib-Performance für die ONTAP Cloud wurde in Azure durch die Verwendung von Premium-Storage-Festplatten verbessert. Die Verbesserung wird mit ONTAP Cloud Standard, Premium und BYOL unterstützt.
+
+
+NOTE: Verbesserungen der Schreib-Performance werden nicht unterstützt, wenn der Typ der virtuellen DS3_v2-Maschine verwendet wird.
+
+
+
+== Erhöhtes Kapazitätslimit für ONTAP Cloud Premium und BYOL in Azure
+
+Die Kapazitätsgrenze für ONTAP Cloud Premium und ONTAP Cloud BYOL hat sich bei Verwendung der Virtual Machine-Typen DS5_v2 oder DS14_v2 auf 252 TB verdoppelt.
+
+
+NOTE: Diese Änderung ist durch eine Erhöhung der Festplattenanzahl pro virtueller Azure-Maschine möglich. Die maximale Kapazität je Aggregat ändert sich nicht.
+
+
+
+== Support für Azure US-Regionen
+
+Cloud Manager und ONTAP Cloud BYOL können jetzt in den folgenden Azure Regionen implementiert werden:
+
+* US Gov Arizona
+* US Gov Texas
+* US Gov Virginia
+
+
+Um Cloud Manager in diesen Regionen einzusetzen, müssen Sie aus Azure Marketplace eine CentOS 7.3 Virtual Machine erstellen, das Cloud Manager Installationsprogramm von der NetApp Support Site herunterladen und dann die Software installieren. Nach der Ausführung von Cloud Manager können ONTAP Cloud-BYOL-Systeme in den genannten Regionen wie in jeder anderen Region implementiert werden.
+
+
+
+== Unterstützung für Disaster Recovery für SVM
+
+ONTAP Cloud unterstützt eine Datenservice-SVM und eine Ziel-SVM für die Disaster Recovery. Sie können die Ziel-SVM für den Datenzugriff aktivieren, wenn ein Ausfall auf der Quell-SVM auftritt.
+
+Bei der SVM Disaster Recovery wird die asynchrone Spiegelung von SVM-Daten und -Konfiguration von einer Quell-SVM zu einer Ziel-SVM erstellt. Sie können eine Ziel-SVM für den Datenzugriff schnell aktivieren, wenn die Quell-SVM nicht mehr verfügbar ist.
+
+
+NOTE: Cloud Manager bietet keine Einrichtungs- oder Orchestrierungsunterstützung für SVM Disaster Recovery. Darüber hinaus werden Storage-bezogene Aufgaben auf zusätzlichen SVMs nicht unterstützt. Sie müssen System Manager oder die CLI für die SVM-Disaster Recovery verwenden.
+
+https://library.netapp.com/ecm/ecm_get_file/ECMLP2839856["Express Guide zur Vorbereitung des SVM-Disaster Recovery"^]
+
+https://library.netapp.com/ecm/ecm_get_file/ECMLP2839857["SVM Disaster Recovery Express Guide"^]
+
+
+
+== Upgrade-Hinweise
+
+* Upgrades müssen über Cloud Manager abgeschlossen werden. Sie sollten kein Upgrade für ONTAP Cloud mit System Manager oder der CLI durchführen. Dies kann die Stabilität des Systems beeinträchtigen.
+* Sie können von ONTAP Cloud 9.2 auf ONTAP Cloud 9.3 aktualisieren.
+* Das Upgrade eines einzelnen Node-Systems nimmt das System für bis zu 25 Minuten offline, während dieser I/O-Unterbrechung erfolgt.
+* Das Upgrade eines HA-Paars erfolgt unterbrechungsfrei und die I/O wird unterbrochen. Während dieses unterbrechungsfreien Upgrade-Prozesses wird jeder Node entsprechend aktualisiert, um den I/O-Datenverkehr für die Clients weiterhin bereitzustellen.
+

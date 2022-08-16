@@ -1,0 +1,180 @@
+---
+sidebar: sidebar 
+permalink: reference-storage-limits.html 
+keywords: limits, maximum, storage, aggregates, disks, volumes, capacity, luns, size, storage virtual machine, SVM 
+summary: ONTAP Cloud verfügt über Einschränkungen bei der Storage-Konfiguration, um einen zuverlässigen Betrieb zu gewährleisten. Konfigurieren Sie das System nicht mit den Maximalwerten, um eine optimale Performance zu erzielen. 
+---
+= Storage-Beschränkungen
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+ONTAP Cloud verfügt über Einschränkungen bei der Storage-Konfiguration, um einen zuverlässigen Betrieb zu gewährleisten. Konfigurieren Sie das System nicht mit den Maximalwerten, um eine optimale Performance zu erzielen.
+
+In den folgenden Abschnitten werden Einschränkungen für Aggregate, Volumes, LUNs und zugehörige Storage-Objekte aufgeführt. Beachten Sie, dass die maximale Kapazität für ein ONTAP Cloud-System modellspezifisch ist. ONTAP Cloud-Konfigurationen, die ein niedrigeres Kapazitätslimit unterstützen, können einige der Größen- und Festplattengrenzen nicht erreichen.
+
+
+
+== Grenzen des physischen Storage für ONTAP Clouds in AWS
+
+[cols="3*"]
+|===
+| Physischer Storage | Parameter | Grenze 
+
+
+.5+| *Aggregate und Disks* | Maximale Anzahl an Aggregaten | 34 bei Single-Node-Konfigurationen 18 pro Node in einer HA-Konfiguration ^1^ 
+
+
+| Maximale Aggregatgröße | 96 tib Rohkapazität 
+
+
+| Disks pro Aggregat | 1-6 ^2^ 
+
+
+| Maximale Festplattengröße | 16 tib 
+
+
+| Maximale Anzahl der Datenfestplatten über alle Aggregate ^3^ | 34 bei Single-Node-Konfigurationen 31 pro Node in einer HA-Konfiguration 
+
+
+| *RAID Gruppen* | Die maximale Anzahl pro Aggregat | 1 
+|===
+Hinweise:
+
+. Es ist nicht möglich, 18 Aggregate auf beiden Nodes in einem HA-Paar zu erstellen, da dadurch das Limit der Daten-Festplatten überschritten wird.
+. Alle Festplatten in einem Aggregat müssen dieselbe Größe haben.
+. Die Begrenzung der Datenfestplatte bezieht sich auf Festplatten, die Benutzerdaten enthalten. Die Boot-Festplatte und das Root-Laufwerk für jeden Knoten sind in diesem Limit nicht enthalten.
+
+
+
+
+== Physische Storage-Grenzen für ONTAP Cloud in Azure
+
+[cols="3*"]
+|===
+| Physischer Storage | Parameter | Grenze 
+
+
+.5+| *Aggregate und Disks* | Maximale Anzahl an Aggregaten | 63 
+
+
+| Maximale Aggregatgröße | 200 tib Rohkapazität 
+
+
+| Disks pro Aggregat | 1-12 ^1^ 
+
+
+| Maximale Festplattengröße | 32 tib 
+
+
+| Maximale Anzahl der Datenfestplatten über alle Aggregate ^2^  a| 
+* DS3_v2: 15
+* DS4_v2: 31
+* DS5_v2: 63
+* DS13_v2: 31
+* DS14_v2: 63
+
+
+
+
+| *RAID Gruppen* | Die maximale Anzahl pro Aggregat | 1 
+|===
+Hinweise:
+
+. Alle Festplatten in einem Aggregat müssen dieselbe Größe haben.
+. Die Begrenzung der Datenfestplatte bezieht sich auf Festplatten, die Benutzerdaten enthalten. Die Boot-Festplatte und das Root-Laufwerk für jeden Knoten sind in diesem Limit nicht enthalten.
+
+
+
+
+== Logische Storage-Einschränkungen
+
+[cols="22,22,56"]
+|===
+| Logischer Storage | Parameter | Grenze 
+
+
+| *Storage Virtual Machines (SVMs)* | Maximale Anzahl für ONTAP Cloud (HA-Paar oder Single Node) | Eine Datenservice-SVM und eine Ziel-SVM für die Disaster Recovery verwendet. Sie können die Ziel-SVM für den Datenzugriff aktivieren, wenn ein Ausfall auf der Quell-SVM auftritt. ^1^ die einheitliche SVM für Daten umfasst das gesamte ONTAP Cloud-System (HA-Paar oder einzelner Node). 
+
+
+.2+| *Dateien* | Maximale Größe | 16 tib 
+
+
+| Maximale Anzahl pro Volume | Volumengröße abhängig, bis zu 2 Milliarden 
+
+
+| *FlexClone Volumes* | Hierarchische Klontiefe ^2^ | 499 
+
+
+.3+| *FlexVol Volumes* | Maximal pro Node | 500 
+
+
+| Mindestgröße | 20 MB 
+
+
+| Maximale Größe | AWS: Abhängig von der Größe des Aggregats ^3^ Azure: 100 tib 
+
+
+| *Qtrees* | Maximale Anzahl pro FlexVol Volume | 4,995 
+
+
+| *Snapshot Kopien* | Maximale Anzahl pro FlexVol Volume | 255 
+|===
+Hinweise:
+
+. Cloud Manager bietet keine Einrichtungs- oder Orchestrierungsunterstützung für SVM Disaster Recovery. Zudem werden für zusätzliche SVMs keine Storage-Aufgaben unterstützt. Sie müssen System Manager oder die CLI für die SVM-Disaster Recovery verwenden.
++
+** https://library.netapp.com/ecm/ecm_get_file/ECMLP2839856["Express Guide zur Vorbereitung des SVM-Disaster Recovery"^]
+** https://library.netapp.com/ecm/ecm_get_file/ECMLP2839857["SVM Disaster Recovery Express Guide"^]
+
+
+. Diese hierarchische Klontiefe ist die maximale Tiefe einer geschachtelten Hierarchie der FlexClone Volumes, die aus einem einzelnen FlexVol Volume erstellt werden kann.
+. Weniger als 100 tib wird unterstützt, da die Aggregate für diese Konfiguration auf 96 tib _RAW_ -Kapazität begrenzt sind.
+
+
+
+
+== ISCSI-Storage-Einschränkungen
+
+[cols="3*"]
+|===
+| ISCSI-Storage | Parameter | Grenze 
+
+
+.4+| *LUNs* | Maximal pro Node | 1,024 
+
+
+| Die maximale Anzahl der LUN-Zuordnungen | 1,024 
+
+
+| Maximale Größe | 16 tib 
+
+
+| Maximale Anzahl pro Volume | 512 
+
+
+| *Igroups* | Maximal pro Node | 256 
+
+
+.2+| *Initiatoren* | Maximal pro Node | 512 
+
+
+| Die maximale Anzahl pro Initiatorgruppe | 128 
+
+
+| *ISCSI-Sitzungen* | Maximal pro Node | 1,024 
+
+
+.2+| *LIFs* | Maximal pro Port | 32 
+
+
+| Maximal pro Portsatz | 32 
+
+
+| *Portsätze* | Maximal pro Node | 256 
+|===
