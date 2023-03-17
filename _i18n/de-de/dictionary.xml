@@ -55,10 +55,6 @@
   <block id="4be7c99cc4f32c3c625df57a663c9fda" category="list-text">LUN-Verschiebung wird auf Systemen mit aktivierter ONTAP-Cloud-Verschlüsselung nicht unterstützt.</block>
   <block id="7c3219a6e60034a457ba203e3497fbcc" category="list-text">ONTAP Cloud sendet Verschlüsselungen sogar für Aggregate, die nicht erstellt wurden, an Schlüsselmanager.</block>
   <block id="e6cd7708d37be14be1ec14b31818d9c9" category="paragraph">Sie müssen die Schlüssel manuell aus Schlüsselmanagern löschen.</block>
-  <block id="f76ce12d7e5a00c1e2cd8f8e648b2a73" category="section-title">Bekannte Einschränkungen für ONTAP Cloud in Azure</block>
-  <block id="8d0b87170877a44e9ee77556da1f6495" category="paragraph">Die folgenden bekannten Einschränkungen wirken sich auf die ONTAP Cloud in Azure aus.</block>
-  <block id="074d9c5e0ad789ed9e36a086198eb20a" category="section-title">CSP-Partner können ohne Bezahlung nach Nutzung der ONTAP Cloud bezahlen</block>
-  <block id="4fb56e49eed9f9cf44c3cec74fe10122" category="paragraph">Als Microsoft Cloud Solution Provider (CSP)-Partner können Sie ONTAP Cloud Explore, Standard oder Premium nicht bereitstellen, da CSP-Partner keine Pay-as-you-go-Abonnements haben. Es muss eine Lizenz erworben und ONTAP Cloud BYOL implementiert werden.</block>
   <block id="b7146193748c9abe7b57ee8d1a61e329" category="summary">ONTAP Cloud verfügt über Einschränkungen bei der Storage-Konfiguration, um einen zuverlässigen Betrieb zu gewährleisten. Konfigurieren Sie das System nicht mit den Maximalwerten, um eine optimale Performance zu erzielen.</block>
   <block id="150a34e7bbdf7765066eae5fadb9f919" category="doc">Storage-Beschränkungen</block>
   <block id="4044d85e7b76a3d297b700c150a40918" category="paragraph">In den folgenden Abschnitten werden Einschränkungen für Aggregate, Volumes, LUNs und zugehörige Storage-Objekte aufgeführt. Beachten Sie, dass die maximale Kapazität für ein ONTAP Cloud-System modellspezifisch ist. ONTAP Cloud-Konfigurationen, die ein niedrigeres Kapazitätslimit unterstützen, können einige der Größen- und Festplattengrenzen nicht erreichen.</block>
@@ -250,4 +246,5 @@
   <block id="7ff191df90fac0fa94ab5c2b5101a5e9" category="sidebar">Alle Dokumentationen zum Cloud Manager</block>
   <block id="dea335c9c6f638eb584011e253ad6ca1" category="sidebar">ONTAP Cloud</block>
   <block id="117bdbda976fe8b3212bc3b6327a0a1b" category="sidebar">Cloud Volumes ONTAP</block>
+  <block id="8ba7e9fc95ff683b40e7c59130ea44da" category="sidebar">Andere Versionen</block>
 </blocks>
