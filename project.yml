@@ -24,6 +24,8 @@ sidebar:
     url: "/index.html"
   - title: Was ist neu
     url: "/reference-new.html"
+  - title: Andere Versionen
+    url: "/reference-other-versions.html"
   - title: Unterstützte Konfigurationen
     url: "/reference-supported-configs.html"
   - title: Storage-Beschränkungen
