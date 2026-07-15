@@ -18,12 +18,14 @@ ONTAP Cloud 9.3 umfasst mehrere neue Funktionen und Verbesserungen.
 
 
 
+[[ontap-cloud-ha-enhancements-in-aws]]
 == Verbesserung von ONTAP Cloud HA in AWS
 
 Die Version 9.3 sorgt für die Widerstandsfähigkeit von ONTAP Cloud HA-Paaren, um Netzwerkstörungen oder vorübergehende höhere Latenzen innerhalb des AWS Ecosystems zu tolerieren und die Verfügbarkeit von Kundendaten während solcher Ereignisse sicherzustellen.
 
 
 
+[[support-for-the-eu-paris-region-in-aws]]
 == Unterstützung für die Region EU (Paris) in AWS
 
 ONTAP-Cloud wird jetzt in der Region EU (Paris) in AWS unterstützt. Basierend auf den unterstützten Instanztypen in dieser Region sind die folgenden ONTAP-Cloud-Konfigurationen in der Region EU (Paris) verfügbar:
@@ -35,6 +37,7 @@ ONTAP-Cloud wird jetzt in der Region EU (Paris) in AWS unterstützt. Basierend a
 
 
 
+[[enhanced-write-performance-with-azure-premium-disks]]
 == Verbesserte Schreib-Performance mit Azure Premium-Festplatten
 
 Die Schreib-Performance für die ONTAP Cloud wurde in Azure durch die Verwendung von Premium-Storage-Festplatten verbessert. Die Verbesserung wird mit ONTAP Cloud Standard, Premium und BYOL unterstützt.
@@ -44,6 +47,7 @@ NOTE: Verbesserungen der Schreib-Performance werden nicht unterstützt, wenn der
 
 
 
+[[increased-capacity-limit-for-ontap-cloud-premium-and-byol-in-azure]]
 == Erhöhtes Kapazitätslimit für ONTAP Cloud Premium und BYOL in Azure
 
 Die Kapazitätsgrenze für ONTAP Cloud Premium und ONTAP Cloud BYOL hat sich bei Verwendung der Virtual Machine-Typen DS5_v2 oder DS14_v2 auf 252 TB verdoppelt.
@@ -53,6 +57,7 @@ NOTE: Diese Änderung ist durch eine Erhöhung der Festplattenanzahl pro virtuel
 
 
 
+[[support-for-azure-us-gov-regions]]
 == Support für Azure US-Regionen
 
 Cloud Manager und ONTAP Cloud BYOL können jetzt in den folgenden Azure Regionen implementiert werden:
@@ -66,6 +71,7 @@ Um Cloud Manager in diesen Regionen einzusetzen, müssen Sie aus Azure Marketpla
 
 
 
+[[support-for-svm-disaster-recovery]]
 == Unterstützung für Disaster Recovery für SVM
 
 ONTAP Cloud unterstützt eine Datenservice-SVM und eine Ziel-SVM für die Disaster Recovery. Sie können die Ziel-SVM für den Datenzugriff aktivieren, wenn ein Ausfall auf der Quell-SVM auftritt.
@@ -81,6 +87,7 @@ https://library.netapp.com/ecm/ecm_get_file/ECMLP2839857["SVM Disaster Recovery 
 
 
 
+[[upgrade-notes]]
 == Upgrade-Hinweise
 
 * Upgrades müssen über Cloud Manager abgeschlossen werden. Sie sollten kein Upgrade für ONTAP Cloud mit System Manager oder der CLI durchführen. Dies kann die Stabilität des Systems beeinträchtigen.

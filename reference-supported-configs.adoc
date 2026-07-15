@@ -18,6 +18,7 @@ ONTAP Cloud ist in AWS und Azure in zwei Preisoptionen erhältlich: Nutzungsbasi
 
 
 
+[[ontap-cloud-for-aws]]
 == ONTAP Cloud für AWS
 
 In AWS können Sie ONTAP Cloud als einzelnes System oder als HA-Paar implementieren.
@@ -66,6 +67,7 @@ Hinweise:
 
 
 
+[[ontap-cloud-for-azure]]
 == ONTAP Cloud für Azure
 
 In Azure können Sie ONTAP Cloud als Single-Node-System implementieren.
